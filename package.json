@@ -1,0 +1,30 @@
+{
+  "name": "cuke2go",
+  "version": "0.0.0",
+  "description": "Bundles up your Cucumber-JS test suite, so you can run it in a browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ldegen/cuke2go.git"
+  },
+  "keywords": [
+    "bdd",
+    "cucumber",
+    "testing",
+    "browser"
+  ],
+  "author": "Lukas Degener",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/ldegen/cuke2go/issues"
+  },
+  "dependencies": {
+    "browserify": "latest",
+    "cucumber": "http://ci-dfg/jenkins-artifacts/cucumber-0.3.1.tgz",
+    "promised-io": "~0.3.3",
+    "js-beautify": "~1.4.0"
+  }
+}

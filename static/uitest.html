@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="text/javascript" src="support-code.js"></script>
+<script type="text/javascript" src="uitest.js"></script>
+<script type="text/javascript" src="http://ci-dfg/jenkins-artifacts/cucumber-bundle.js"></script>
+<script type="text/javascript" src="cukes.js"></script>
+
+<link rel="stylesheet" href="test.css">
+</head>
+<body>
+
+   <h2>Output</h2>
+   <p>
+      <button id="run-feature">Run feature</button>
+   </p>
+   <div id="output" class="cucumber-report"></div>
+   <div id="errors-container">
+      <h3>Errors</h3>
+      <pre id="errors"></pre>
+   </div>
+
+
+  <script>
+  uit = uitest.create();
+  uit.url('victim.html');
+  uit.ready(function(window){
+    console.log("page loaded from "+window.location);
+  });
+  </script>
+</body>
+</html>
