@@ -1,15 +1,13 @@
-Cuke2Go=require "../lib/cuke2go"
 Browserify=require "browserify"
 beautify = require('js-beautify').js_beautify
-describe "scan test suite", ->
-  it "knows what features I want to run", ->
-    console.log "ok"
+
+Bundler = require("../lib/c2g-bundler")
 
 describe "bundle support code", ->
   bfy = createSpyObj('bfy', ['require','bundle'])
   bfy.bundle.andCallFake (cb) ->
     cb(null,"all ok")
-  bundler=Cuke2Go.Bundler(bfy)
+  bundler=Bundler(bfy)
   it "does bundle my support code modules", (done) ->
     modules=[
       name:"foo"
@@ -34,5 +32,3 @@ describe "bundle support code", ->
       )
       expect(data).toEqual(requires+"\nall ok"  )
       done()
-
-
