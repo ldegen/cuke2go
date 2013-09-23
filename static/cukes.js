@@ -79,7 +79,7 @@
 	    var output          = $('#output');
 	    var errors          = $('#errors');
 	    var errorsContainer = $('#errors-container');
-	    var featureSource   = features.map(function(f){return f.src;}).join("\n\n");
+	    var featureSource   = $('script[type="application/gherkin"]').text();
 	    supportCode         = SupportCode;
 	    var cucumber        = Cucumber(featureSource, supportCode);
 	    var $output         = $('#output');

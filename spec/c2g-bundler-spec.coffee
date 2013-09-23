@@ -5,8 +5,13 @@ Bundler = require("../lib/c2g-bundler")
 
 describe "bundle support code", ->
   bfy = createSpyObj('bfy', ['require','bundle'])
-  bfy.bundle.andCallFake (cb) ->
-    cb(null,"all ok")
+  bfy.bundle.andReturn 
+    on:(ev,cb) -> 
+      if(ev=="data") 
+        cb("all ok")
+      if(ev=="end") 
+        cb()
+
   bundler=Bundler(bfy)
   it "does bundle my support code modules", (done) ->
     modules=[
@@ -15,7 +20,7 @@ describe "bundle support code", ->
     ]
     bundler.bundleSupportCode(modules).then (data)->
       expect(bfy.require).toHaveBeenCalledWith( "path/to/foo",{ expose:"foo"})
-      expect(bfy.bundle).toHaveBeenCalledWith(any(Function))
+      expect(bfy.bundle).toHaveBeenCalled()
       requires = beautify(
         """
         function SupportCode() {

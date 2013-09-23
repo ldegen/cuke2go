@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+c2g=require("../lib/cuke2go");
+
+c2g(process.argv.slice(2));
